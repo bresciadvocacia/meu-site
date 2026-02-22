@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brescia Advocacia Especializada</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --azul-marinho: #0A192F;
+            --dourado: #C5A059;
+            --gelo: #F8F9FA;
+            --whatsapp: #25D366;
+        }
+
+        body { font-family: 'Segoe UI', serif; margin: 0; background-color: var(--gelo); color: #333; line-height: 1.6; }
+
+        header {
+            background-color: var(--azul-marinho);
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid var(--dourado);
+            position: sticky; top: 0; z-index: 1000;
+        }
+
+        .logo { color: var(--dourado); font-size: 1.5rem; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; }
+
+        .hero {
+            background: linear-gradient(rgba(10, 25, 47, 0.85), rgba(10, 25, 47, 0.85)), 
+                        url('https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&q=80&w=1500');
+            background-size: cover; height: 80vh; display: flex; flex-direction: column;
+            justify-content: center; align-items: center; text-align: center; color: white; padding: 0 10%;
+        }
+
+        .hero h1 { font-size: 3.5rem; margin-bottom: 10px; color: white; }
+        .hero p { color: var(--dourado); font-size: 1.3rem; max-width: 700px; margin-bottom: 30px; }
+
+        .areas { padding: 80px 5%; text-align: center; }
+        .grid-areas { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
+        
+        .card {
+            background: white; padding: 40px; border-radius: 8px;
+            border-top: 5px solid var(--dourado);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        .card:hover { transform: translateY(-10px); }
+        .card i { font-size: 2.5rem; color: var(--azul-marinho); margin-bottom: 20px; }
+
+        /* Botão WhatsApp Flutuante */
+        .whatsapp-float {
+            position: fixed; width: 60px; height: 60px; bottom: 40px; right: 40px;
+            background-color: var(--whatsapp); color: #FFF; border-radius: 50px;
+            text-align: center; font-size: 30px; box-shadow: 2px 2px 3px #999; z-index: 100;
+            display: flex; align-items: center; justify-content: center; text-decoration: none;
+        }
+
+        .btn-cta {
+            background-color: var(--dourado); color: var(--azul-marinho);
+            padding: 18px 35px; text-decoration: none; font-weight: bold;
+            border-radius: 5px; text-transform: uppercase; transition: 0.3s;
+        }
+
+        footer { background: var(--azul-marinho); color: white; padding: 40px; text-align: center; border-top: 5px solid var(--dourado); }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">Brescia Advocacia Especializada</div>
+</header>
+
+<section class="hero">
+    <h1>Soluções Jurídicas de Alta Performance</h1>
+    <p>Atuação técnica e estratégica focada na defesa dos seus interesses e na garantia dos seus direitos.</p>
+    <a href="https://wa.me/5519991617038" class="btn-cta">Falar com Especialista agora</a>
+</section>
+
+<section class="areas">
+    <h2>Especialidades Jurídicas</h2>
+    <div class="grid-areas">
+        <div class="card">
+            <i class="fas fa-gavel"></i>
+            <h3>Direito Trabalhista</h3>
+            <p>Defesa de direitos do trabalhador, verbas rescisórias, horas extras e consultoria preventiva empresarial.</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-university"></i>
+            <h3>Direito Previdenciário</h3>
+            <p>Auxílio no planejamento de aposentadoria, benefícios do INSS, auxílio-doença e revisões de benefício.</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-users"></i>
+            <h3>Direito Civil</h3>
+            <p>Ações de cobrança, contratos, danos morais, direito de família e sucessões com foco na resolução de conflitos.</p>
+        </div>
+    </div>
+</section>
+
+<a href="https://wa.me/5519991617038" class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<footer>
+    <p>&copy; 2026 Brescia Advocacia Estratégica | Atendimento na região metropolitana de Campinas.</p>
+</footer>
+
+</body>
+</html>
