@@ -7,130 +7,46 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body {
-            margin: 0;
-            font-family: 'Montserrat', sans-serif;
-            background-color: #F9F7F2; 
-            color: #1a1a1a;
-            line-height: 1.6;
-            scroll-behavior: smooth;
-        }
-
-        h1, h2, h3, .logo-text {
-            font-family: 'Cinzel', serif;
-            letter-spacing: 2px;
-        }
-
+        body { margin: 0; font-family: 'Montserrat', sans-serif; background-color: #F9F7F2; color: #1a1a1a; line-height: 1.6; scroll-behavior: smooth; }
+        h1, h2, h3, .logo-text { font-family: 'Cinzel', serif; letter-spacing: 2px; }
         .container { width: 85%; max-width: 1200px; margin: auto; }
 
         /* CABEÇALHO */
-        header {
-            background-color: #ffffff;
-            padding: 20px 0;
-            border-bottom: 1px solid #e0dcd0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
+        header { background-color: #ffffff; padding: 20px 0; border-bottom: 1px solid #e0dcd0; position: sticky; top: 0; z-index: 1000; }
+        header .container { display: flex; justify-content: space-between; align-items: center; }
         .logo-box { text-decoration: none; }
         .logo-text { font-size: 1.8rem; font-weight: 700; color: #1a1a1a; margin: 0; }
         .logo-sub { font-size: 0.6rem; text-transform: uppercase; color: #b08d21; letter-spacing: 3px; display: block; font-weight: 600; }
-
         nav ul { list-style: none; margin: 0; padding: 0; display: flex; }
         nav ul li { margin-left: 30px; }
-        nav ul li a {
-            text-decoration: none;
-            color: #1a1a1a;
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            transition: 0.3s;
-        }
+        nav ul li a { text-decoration: none; color: #1a1a1a; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; transition: 0.3s; }
         nav ul li a:hover { color: #b08d21; }
 
-        /* HERO SECTION */
-        #hero {
-            padding: 120px 0;
-            text-align: center;
-            background: linear-gradient(rgba(249, 247, 242, 0.85), rgba(249, 247, 242, 0.85)), url('https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
-        }
-
-        #hero h2 { font-size: 3rem; margin-bottom: 20px; color: #1a1a1a; }
+        /* HERO */
+        #hero { padding: 120px 0; text-align: center; background: linear-gradient(rgba(249, 247, 242, 0.85), rgba(249, 247, 242, 0.85)), url('https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&w=1350&q=80'); background-size: cover; background-position: center; }
         .gold-line { width: 60px; height: 3px; background: #b08d21; margin: 20px auto; }
 
-        /* BOTÃO WHATSAPP FLUTUANTE */
-        .whatsapp-float {
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            bottom: 40px;
-            right: 40px;
-            background-color: #25d366;
-            color: #FFF;
-            border-radius: 50px;
-            text-align: center;
-            font-size: 30px;
-            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
-            z-index: 1001;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            transition: 0.3s;
-        }
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-            background-color: #128c7e;
-        }
+        /* WHATSAPP FLUTUANTE */
+        .whatsapp-float { position: fixed; width: 60px; height: 60px; bottom: 40px; right: 40px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 2px 2px 10px rgba(0,0,0,0.2); z-index: 1001; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: 0.3s; }
+        .whatsapp-float:hover { transform: scale(1.1); background-color: #128c7e; }
 
-        /* SEÇÕES */
-        section { padding: 80px 0; }
-        .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-        .card {
-            padding: 40px;
-            background: #ffffff;
-            border: 1px solid #e0dcd0;
-            text-align: center;
-            transition: 0.4s;
-        }
-        .card:hover { border-color: #b08d21; }
-        .card h3 { color: #b08d21; font-size: 1.1rem; margin-bottom: 15px; }
+        /* SEÇÃO LOCALIZAÇÃO E MAPA */
+        #onde-estamos { padding: 80px 0; background: #fff; }
+        .map-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+        .map-info h2 { margin-bottom: 20px; }
+        .map-info p { color: #555; margin-bottom: 10px; }
+        .map-iframe { width: 100%; height: 350px; border: 1px solid #e0dcd0; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
 
-        .btn {
-            display: inline-block;
-            background: #1a1a1a;
-            color: #d4af37;
-            padding: 16px 35px;
-            text-decoration: none;
-            text-transform: uppercase;
-            font-weight: 600;
-            font-size: 0.8rem;
-            transition: 0.3s;
-            border: none;
-        }
+        .btn { display: inline-block; background: #1a1a1a; color: #d4af37; padding: 16px 35px; text-decoration: none; text-transform: uppercase; font-weight: 600; font-size: 0.8rem; transition: 0.3s; border: none; }
         .btn:hover { background: #b08d21; color: #fff; }
-
         footer { padding: 60px; background: #1a1a1a; color: #888; text-align: center; }
 
-        @media (max-width: 768px) {
-            .grid { grid-template-columns: 1fr; }
-            nav ul { display: none; } /* Simplicidade para mobile */
-            .whatsapp-float { bottom: 20px; right: 20px; width: 50px; height: 50px; font-size: 25px; }
-        }
+        @media (max-width: 768px) { .map-grid { grid-template-columns: 1fr; } .logo-text { font-size: 1.5rem; } nav ul { display: none; } }
     </style>
 </head>
 <body>
 
-    <a href="https://wa.me/seunumero" class="whatsapp-float" target="_blank">
+    <a href="https://wa.me/5500000000000" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -142,9 +58,9 @@
             </a>
             <nav>
                 <ul>
-                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#hero">Início</a></li>
                     <li><a href="#areas">Atuação</a></li>
-                    <li><a href="#faq">Dúvidas</a></li>
+                    <li><a href="#onde-estamos">Onde Estamos</a></li>
                     <li><a href="#contato">Contato</a></li>
                 </ul>
             </nav>
@@ -153,37 +69,56 @@
 
     <section id="hero">
         <div class="container">
-            <h2>Defesa Jurídica <br> com Visão <span style="color:#b08d21">Estratégica</span></h2>
+            <h2>Defesa Jurídica com <br> <span style="color:#b08d21">Visão Estratégica</span></h2>
             <div class="gold-line"></div>
-            <p style="max-width: 650px; margin: 0 auto 30px; color: #555;">Especialista em causas Trabalhistas e Previdenciárias, transformando técnica em resultados para você.</p>
+            <p style="max-width: 650px; margin: 0 auto 30px; color: #555;">Protegendo seu trabalho, seu futuro e seus direitos com excelência técnica.</p>
             <a href="#contato" class="btn">Solicitar Atendimento</a>
         </div>
     </section>
 
-    <section id="areas" style="background: #ffffff;">
+    <section id="areas" style="background: #ffffff; padding: 100px 0;">
         <div class="container">
             <h2 style="text-align:center; margin-bottom:60px;">Áreas de Atuação</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>TRABALHISTA</h3>
-                    <p>Foco na proteção de verbas rescisórias, horas extras e reconhecimento de vínculos.</p>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;">
+                <div style="padding: 40px; border: 1px solid #e0dcd0; text-align: center;">
+                    <h3 style="color:#b08d21;">TRABALHISTA</h3>
+                    <p>Estratégias para rescisões, horas extras e direitos trabalhistas complexos.</p>
                 </div>
-                <div class="card">
-                    <h3>PREVIDENCIÁRIO</h3>
-                    <p>Análise estratégica de contribuições para garantir a melhor aposentadoria possível.</p>
+                <div style="padding: 40px; border: 1px solid #e0dcd0; text-align: center;">
+                    <h3 style="color:#b08d21;">PREVIDENCIÁRIO</h3>
+                    <p>Planejamento para garantir a melhor aposentadoria e benefícios previdenciários.</p>
                 </div>
-                <div class="card">
-                    <h3>CÍVEL</h3>
-                    <p>Soluções em contratos e responsabilidade civil com agilidade e rigor técnico.</p>
+                <div style="padding: 40px; border: 1px solid #e0dcd0; text-align: center;">
+                    <h3 style="color:#b08d21;">CÍVEL</h3>
+                    <p>Soluções contratuais e responsabilidade civil com agilidade e ética.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contato" style="text-align: center; background: #f0ede4;">
+    <section id="onde-estamos">
         <div class="container">
-            <h2>Pronto para proteger seus direitos?</h2>
-            <p style="margin-bottom: 30px;">Clique no botão abaixo ou use o ícone flutuante ao lado para falar agora.</p>
-            <a href="https://wa.me/seunumero" class="btn">Falar com a Dra. Brescia</a>
+            <div class="map-grid">
+                <div class="map-info">
+                    <h2>Nosso Escritório</h2>
+                    <p><i class="fas fa-map-marker-alt" style="color:#b08d21; margin-right: 10px;"></i> R. Antônio Viégas, 130 - Nucleo Santa Isabel</p>
+                    <p><i class="fas fa-city" style="color:#b08d21; margin-right: 10px;"></i> Hortolândia - SP | CEP 13185-394</p>
+                    <p><i class="fas fa-phone-alt" style="color:#b08d21; margin-right: 10px;"></i> (19) 90000-0000</p>
+                    <p style="margin-top: 20px;">Atendimento presencial com agendamento prévio ou consultas digitais para sua comodidade.</p>
+                    <a href="https://maps.app.goo.gl/Gnn8ZqeXcgJsnTyLA" class="btn" target="_blank" style="margin-top: 20px;">Abrir no Google Maps</a>
+                </div>
+                <div>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3675.3493782546266!2d-47.17445352544872!3d-22.900480837644253!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c8b84dba2f16c7%3A0xc852a867d07f8cbf!2sR.%20Ant%C3%B4nio%20Vi%C3%A9gas%2C%20130%20-%20Nucleo%20Santa%20Isabel%2C%20Hortol%C3%A2ndia%20-%20SP%2C%2013185-394!5e0!3m2!1spt-BR!2sbr!4v1771770596805!5m2!1spt-BR!2sbr" width="550" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
         </div>
     </section>
+
+    <footer id="contato">
+        <div class="logo-text" style="color: #fff; font-size: 1.2rem; margin-bottom: 10px;">BRESCIA</div>
+        &copy; 2026 Brescia Advocacia Estratégica. <br>
+        Excelência em Atendimento Jurídico.
+    </footer>
+
+</body>
+</html>
