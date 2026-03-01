@@ -11,6 +11,38 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
+
+.float-card {
+    position: fixed;
+    bottom: 20px;
+    left: 20px; /* Lado oposto ao WhatsApp */
+    background-color: #1a1a1a;
+    color: #b08d21;
+    padding: 12px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    z-index: 1000;
+    border: 1px solid #b08d21;
+    transition: 0.3s;
+}
+
+.float-card:hover {
+    background-color: #b08d21;
+    color: #fff;
+    transform: translateY(-3px);
+}
+
+/* No celular, para não ocupar muito espaço, mostramos apenas o ícone ou encurtamos */
+@media (max-width: 768px) {
+    .float-card span { display: none; }
+    .float-card { padding: 15px; border-radius: 50%; }
+}
+
         body { margin: 0; font-family: 'Montserrat', sans-serif; background-color: #F9F7F2; color: #1a1a1a; line-height: 1.6; scroll-behavior: smooth; overflow-x: hidden; }
         h1, h2, h3, .logo-text { font-family: 'Cinzel', serif; letter-spacing: 2px; }
         .container { width: 85%; max-width: 1200px; margin: auto; }
@@ -116,6 +148,11 @@
     </style>
 </head>
 <body>
+
+<a href="cartaodigital.html" class="float-card" title="Salvar Contato">
+    <i class="fas fa-address-card"></i>
+    <span>Salvar Contato</span>
+</a>
 
     <div class="whatsapp-container">
         <div class="whatsapp-label">Tire suas dúvidas pelo WhatsApp</div>
