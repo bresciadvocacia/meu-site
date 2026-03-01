@@ -12,38 +12,72 @@
 
     <style>
 
+/* --- APENAS PARA O BOTÃO DO CARTÃO DIGITAL --- */
 .float-card {
     position: fixed;
-    bottom: 20px;
-    left: 20px; /* Lado oposto ao WhatsApp */
+    /* Aumentei para 40px para subir e alinhar com o WhatsApp */
+    bottom: 40px;       
+    left: 25px;         
+    
     background-color: #1a1a1a;
     color: #b08d21;
-    padding: 12px 20px;
-    border-radius: 50px;
-    text-decoration: none;
+    border: 1.5px solid #b08d21;
+    
+    /* Tamanho circular fixo */
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-weight: 600;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    z-index: 1000;
-    border: 1px solid #b08d21;
-    transition: 0.3s;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 24px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    z-index: 99999; /* Garante que fique por cima de tudo */
+    transition: 0.3s ease;
 }
 
+/* Ajuste específico para o Mobile */
+@media (max-width: 768px) {
+    .float-card {
+        bottom: 35px; /* Ajuste para o celular também acompanhar */
+        left: 15px;
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+}
 .float-card:hover {
     background-color: #b08d21;
     color: #fff;
-    transform: translateY(-3px);
+    transform: scale(1.1);
 }
 
-/* No celular, para não ocupar muito espaço, mostramos apenas o ícone ou encurtamos */
+/* Esconde o texto "Salvar Contato" para ele ser apenas um ícone redondo, igual ao WhatsApp costuma ser no celular */
+.float-card span {
+    display: none;
+}
+
+/* Ajuste fino para Mobile */
+/* Ajuste específico para o Mobile */
 @media (max-width: 768px) {
-    .float-card span { display: none; }
-    .float-card { padding: 15px; border-radius: 50%; }
+    .float-card {
+        /* Se o Whats estiver mais alto que o Cartão no celular, 
+           aumente esse valor de 20px para 25px ou 30px */
+        bottom: 31px; 
+        
+        left: 15px;
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+        
+        /* Força o alinhamento fixo ignorando outras margens */
+        margin: 0 !important; 
+    }
 }
 
-        body { margin: 0; font-family: 'Montserrat', sans-serif; background-color: #F9F7F2; color: #1a1a1a; line-height: 1.6; scroll-behavior: smooth; overflow-x: hidden; }
+    body { margin: 0; font-family: 'Montserrat', sans-serif; background-color: #F9F7F2; color: #1a1a1a; line-height: 1.6; scroll-behavior: smooth; overflow-x: hidden; }
         h1, h2, h3, .logo-text { font-family: 'Cinzel', serif; letter-spacing: 2px; }
         .container { width: 85%; max-width: 1200px; margin: auto; }
 
