@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartão Digital | Brescia Advocacia</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* CONFIGURAÇÕES GERAIS */
+        body { 
+            margin: 0; 
+            padding: 0; 
+            font-family: 'Montserrat', sans-serif; 
+            background-color: #1a1a1a; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            min-height: 100vh; 
+        }
+
+        .card { 
+            width: 90%; 
+            max-width: 380px; 
+            background: #fff; 
+            color: #1a1a1a; 
+            border-radius: 20px; 
+            overflow: hidden; 
+            text-align: center; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5); 
+            padding-bottom: 30px; 
+        }
+        
+        /* CABEÇALHO E FOTO */
+        .header-gold { 
+            background: #b08d21; 
+            height: 120px; 
+            position: relative; 
+            margin-bottom: 75px; 
+        }
+
+        .profile-img { 
+            width: 130px; 
+            height: 130px; 
+            border-radius: 50%; 
+            border: 5px solid #fff; 
+            position: absolute; 
+            bottom: -65px; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            background: #eee; 
+            object-fit: cover; 
+            object-position: center 15%; /* Ajustado para não cortar a cabeça */
+        }
+        
+        /* TEXTOS */
+        .name { 
+            font-family: 'Cinzel', serif; 
+            font-size: 1.6rem; 
+            margin: 0 0 5px 0; 
+            color: #1a1a1a; 
+        }
+
+        .title { 
+            color: #b08d21; 
+            font-weight: 600; 
+            font-size: 0.85rem; 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            margin-bottom: 25px; 
+        }
+        
+        /* BOTÕES DE LINKS */
+        .links { padding: 0 25px; }
+
+        .btn-link { 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            background: #f8f8f8; 
+            border: 1px solid #e0dcd0; 
+            color: #1a1a1a; 
+            text-decoration: none; 
+            padding: 14px; 
+            border-radius: 12px; 
+            margin-bottom: 12px; 
+            font-weight: 600; 
+            font-size: 0.9rem; 
+            transition: 0.3s; 
+        }
+
+        .btn-link i { 
+            margin-right: 12px; 
+            color: #b08d21; 
+            font-size: 1.2rem; 
+        }
+
+        .btn-link:hover { 
+            background: #b08d21; 
+            color: #fff; 
+        }
+
+        .btn-link:hover i { color: #fff; }
+
+        /* BOTÃO SALVAR NA AGENDA */
+        .btn-save { 
+            background: #1a1a1a; 
+            color: #b08d21; 
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px; 
+            border-radius: 50px; 
+            font-weight: bold; 
+            text-transform: uppercase; 
+            letter-spacing: 1px;
+            border: 2px solid #b08d21;
+            width: 85%;
+            margin: 20px auto 0 auto;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .btn-save:hover {
+            background: #b08d21;
+            color: #fff;
+        }
+
+        .footer-oab { 
+            font-size: 0.7rem; 
+            color: #888; 
+            margin-top: 25px; 
+            font-weight: bold; 
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <div class="header-gold">
+        <img src="foto-dra-brescia-cvd.jpeg" alt="Dra. Brescia" class="profile-img">
+    </div>
+
+    <h1 class="name">Dra. Brescia</h1>
+    <p class="title">Advocacia Estratégica</p>
+
+    <div class="links">
+        <a href="https://wa.me/5519989167783?text=Olá,%20Dra.%20Brescia!" class="btn-link">
+            <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+        <a href="tel:5519989167783" class="btn-link">
+            <i class="fas fa-phone"></i> Ligar Agora
+        </a>
+        <a href="mailto:contato@brescia.adv.br" class="btn-link">
+            <i class="fas fa-envelope"></i> Enviar E-mail
+        </a>
+        <a href="https://brescia.adv.br" class="btn-link">
+            <i class="fas fa-globe"></i> Ver Site Oficial
+        </a>
+
+        <a href="javascript:void(0);" onclick="salvarAgenda()" class="btn-save">
+    <i class="fas fa-user-plus" style="margin-right: 10px;"></i> Salvar na Agenda
+</a>
+    </div>
+
+    <p class="footer-oab">OAB/SP 427.508</p>
+</div>
+
+<script>
+function salvarAgenda() {
+    const vcard = 'BEGIN:VCARD\n' +
+                  'VERSION:3.0\n' +
+                  'FN:Dra. Brescia - Advocacia\n' +
+                  'TEL;TYPE=CELL;TYPE=VOICE:+5519989167783\n' +
+                  'EMAIL;TYPE=INTERNET:contato@brescia.adv.br\n' +
+                  'URL:https://brescia.adv.br\n' +
+                  'END:VCARD';
+
+    // Detecta se é iPhone/iPad/iOS
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+
+    if (isIOS) {
+        // Para iPhone: Usa o formato Data URI que o Safari entende como contato direto
+        window.location.href = 'data:text/vcard;charset=utf-8,' + encodeURIComponent(vcard);
+    } else {
+        // Para Android: Mantém o método de download de arquivo (Blob)
+        const blob = new Blob([vcard], { type: 'text/vcard' });
+        const url = window.URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'Dra_Brescia.vcf';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        window.URL.revokeObjectURL(url);
+    }
+}
+</script>
+</body>
+</html>
