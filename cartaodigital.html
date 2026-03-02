@@ -50,7 +50,7 @@
             transform: translateX(-50%); 
             background: #eee; 
             object-fit: cover; 
-            object-position: center 15%; /* Ajustado para não cortar a cabeça */
+            object-position: center 15%;
         }
         
         /* TEXTOS */
@@ -146,7 +146,7 @@
     <p class="title">Advocacia Estratégica</p>
 
     <div class="links">
-        <a href="https://wa.me/5519989167783?text=Olá,%20Dra.%20Brescia!" class="btn-link">
+        <a href="https://wa.me/5519989167783?text=Olá,%20Dra.%20Brescia!" class="btn-link" id="btn-whatsapp">
             <i class="fab fa-whatsapp"></i> WhatsApp
         </a>
         <a href="tel:5519989167783" class="btn-link">
@@ -160,14 +160,36 @@
         </a>
 
         <a href="javascript:void(0);" onclick="salvarAgenda()" class="btn-save">
-    <i class="fas fa-user-plus" style="margin-right: 10px;"></i> Salvar na Agenda
-</a>
+            <i class="fas fa-user-plus" style="margin-right: 10px;"></i> Salvar na Agenda
+        </a>
     </div>
 
     <p class="footer-oab">OAB/SP 427.508</p>
 </div>
 
 <script>
+// --- 2. NOVA FUNÇÃO DE RASTREIO ---
+function configurarRastreio() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const origem = urlParams.get('origem');
+    const btnWhats = document.getElementById('btn-whatsapp');
+    
+    // Mensagem padrão
+    let mensagem = "Olá, Dra. Brescia! Gostaria de uma consultoria estratégica.";
+
+    // Se no link tiver ?origem=instagram, muda a frase
+    if (origem === 'instagram') {
+        mensagem = "Olá, Dra. Brescia! Vim pelo seu Instagram e gostaria de agendar uma consulta.";
+    }
+
+    // Aplica a mensagem no botão
+    btnWhats.href = "https://wa.me/5519989167783?text=" + encodeURIComponent(mensagem);
+}
+
+// Inicia o rastreio assim que a página abre
+window.onload = configurarRastreio;
+
+// --- FUNÇÃO SALVAR AGENDA (MANTIDA) ---
 function salvarAgenda() {
     const vcard = 'BEGIN:VCARD\n' +
                   'VERSION:3.0\n' +
@@ -177,14 +199,11 @@ function salvarAgenda() {
                   'URL:https://brescia.adv.br\n' +
                   'END:VCARD';
 
-    // Detecta se é iPhone/iPad/iOS
     const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 
     if (isIOS) {
-        // Para iPhone: Usa o formato Data URI que o Safari entende como contato direto
         window.location.href = 'data:text/vcard;charset=utf-8,' + encodeURIComponent(vcard);
     } else {
-        // Para Android: Mantém o método de download de arquivo (Blob)
         const blob = new Blob([vcard], { type: 'text/vcard' });
         const url = window.URL.createObjectURL(blob);
         const link = document.createElement('a');
@@ -197,5 +216,6 @@ function salvarAgenda() {
     }
 }
 </script>
+
 </body>
 </html>
