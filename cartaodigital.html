@@ -149,6 +149,11 @@
         <a href="https://wa.me/5519989167783?text=Olá,%20Dra.%20Brescia!" class="btn-link" id="btn-whatsapp">
             <i class="fab fa-whatsapp"></i> WhatsApp
         </a>
+        
+        <a href="https://www.instagram.com/brescia.advocacia/" target="_blank" class="btn-link">
+            <i class="fab fa-instagram"></i> Instagram
+        </a>
+
         <a href="tel:5519989167783" class="btn-link">
             <i class="fas fa-phone"></i> Ligar Agora
         </a>
@@ -168,28 +173,24 @@
 </div>
 
 <script>
-// --- 2. NOVA FUNÇÃO DE RASTREIO ---
+// --- FUNÇÃO DE RASTREIO ---
 function configurarRastreio() {
     const urlParams = new URLSearchParams(window.location.search);
     const origem = urlParams.get('origem');
     const btnWhats = document.getElementById('btn-whatsapp');
     
-    // Mensagem padrão
     let mensagem = "Olá, Dra. Brescia! Gostaria de agendar uma consultoria.";
 
-    // Se no link tiver ?origem=instagram, muda a frase
     if (origem === 'instagram') {
         mensagem = "Olá, Dra. Brescia! Vim pelo seu Instagram e gostaria de agendar uma consulta.";
     }
 
-    // Aplica a mensagem no botão
     btnWhats.href = "https://wa.me/5519989167783?text=" + encodeURIComponent(mensagem);
 }
 
-// Inicia o rastreio assim que a página abre
 window.onload = configurarRastreio;
 
-// --- FUNÇÃO SALVAR AGENDA (MANTIDA) ---
+// --- FUNÇÃO SALVAR AGENDA ---
 function salvarAgenda() {
     const vcard = 'BEGIN:VCARD\n' +
                   'VERSION:3.0\n' +
@@ -219,4 +220,3 @@ function salvarAgenda() {
 
 </body>
 </html>
-
