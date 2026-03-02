@@ -15,15 +15,13 @@
 /* --- APENAS PARA O BOTÃO DO CARTÃO DIGITAL --- */
 .float-card {
     position: fixed;
-    /* Aumentei para 40px para subir e alinhar com o WhatsApp */
-    bottom: 30px;       
-    left: 30px;         
+    bottom: 30px; /* Alinhado com o WhatsApp no PC */
+    left: 30px; /* Simétrico ao WhatsApp no PC */
     
     background-color: #1a1a1a;
     color: #b08d21;
     border: 1.5px solid #b08d21;
     
-    /* Tamanho circular fixo */
     width: 55px;
     height: 55px;
     border-radius: 50%;
@@ -34,47 +32,18 @@
     text-decoration: none;
     font-size: 24px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-    z-index: 99999; /* Garante que fique por cima de tudo */
+    z-index: 99999;
     transition: 0.3s ease;
 }
 
-/* Ajuste específico para o Mobile */
-@media (max-width: 768px) {
-    .float-card {
-        bottom: 35px; /* Ajuste para o celular também acompanhar */
-        left: 15px;
-        width: 50px;
-        height: 50px;
-        font-size: 20px;
-    }
-}
 .float-card:hover {
     background-color: #b08d21;
     color: #fff;
     transform: scale(1.1);
 }
 
-/* Esconde o texto "Salvar Contato" para ele ser apenas um ícone redondo, igual ao WhatsApp costuma ser no celular */
 .float-card span {
     display: none;
-}
-
-/* Ajuste fino para Mobile */
-/* Ajuste específico para o Mobile */
-@media (max-width: 768px) {
-    .float-card {
-        /* Se o Whats estiver mais alto que o Cartão no celular, 
-           aumente esse valor de 20px para 25px ou 30px */
-        bottom: 31px; 
-        
-        left: 15px;
-        width: 50px;
-        height: 50px;
-        font-size: 20px;
-        
-        /* Força o alinhamento fixo ignorando outras margens */
-        margin: 0 !important; 
-    }
 }
 
     body { margin: 0; font-family: 'Montserrat', sans-serif; background-color: #F9F7F2; color: #1a1a1a; line-height: 1.6; scroll-behavior: smooth; overflow-x: hidden; }
@@ -121,13 +90,13 @@
         .depoimento-texto { font-style: italic; color: #444; font-size: 0.9rem; margin-bottom: 10px; }
         .depoimento-autor { font-family: 'Cinzel', serif; font-weight: 700; font-size: 0.75rem; color: #1a1a1a; }
 
-	.cliente-foto-depoimento {
-    width: 80px;           /* Tamanho da foto */
-    height: 80px;          /* Altura igual à largura para ser um círculo */
-    border-radius: 50%;    /* Deixa a foto redonda */
-    object-fit: cover;     /* Garante que a foto não fique "esticada" */
-    margin-bottom: 15px;   /* Espaço entre a foto e o texto */
-    border: 2px solid #b08d21; /* Um contorno dourado para combinar com o site */
+    .cliente-foto-depoimento {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 2px solid #b08d21;
     display: inline-block;
 }
 
@@ -160,15 +129,15 @@
         .btn { display: inline-block; background: #1a1a1a; color: #d4af37; padding: 16px 35px; text-decoration: none; text-transform: uppercase; font-weight: 600; font-size: 0.8rem; transition: 0.3s; border-radius: 4px; }
         .btn:hover { background: #b08d21; color: #fff; }
 
-        /* AJUSTES PARA CELULAR */
+        /* AJUSTES PARA CELULAR CONSOLIDADOS */
         @media (max-width: 768px) { 
             header .container { flex-direction: column; text-align: center; }
             .logo-box { margin-bottom: 10px; }
             .logo-sub { margin-top: -5px; } 
             
-            nav ul { display: flex; flex-wrap: wrap; justify-content: center; gap: 0px; } /* Removido o gap geral */
-            nav ul li { margin: 2px 8px; } /* Reduzido o margin vertical de cada item do menu */
-            nav ul li a { font-size: 0.7rem; } /* Leve ajuste no tamanho para caber melhor */
+            nav ul { display: flex; flex-wrap: wrap; justify-content: center; gap: 0px; }
+            nav ul li { margin: 2px 8px; }
+            nav ul li a { font-size: 0.7rem; }
             
             .faq-category-title { text-align: center; } 
 
@@ -178,6 +147,33 @@
             .footer-brand, .footer-address, .footer-contact-col { text-align: center; align-items: center; }
             .footer-link-item { justify-content: center; width: 100%; }
             .areas-grid, .depoimentos-grid { grid-template-columns: 1fr; }
+
+            /* Ajuste dos botões flutuantes */
+            .float-card {
+                bottom: 30px; 
+                left: 15px;
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+                margin: 0 !important; 
+            }
+            
+            .whatsapp-container { 
+                bottom: 30px; 
+                right: 15px; 
+                /* Ocupa no máximo a largura da tela menos os botões das pontas */
+                max-width: calc(100% - 100px); 
+            }
+
+            .whatsapp-label { 
+                font-size: 12px;           /* Letra maior e legível */
+                padding: 7px 12px; 
+                margin-right: 10px; 
+                white-space: nowrap;      /* Mantém em uma linha */
+                overflow: hidden;         /* Esconde o que sobrar */
+                text-overflow: ellipsis;  /* Se não couber, coloca "..." em vez de bater no botão */
+                display: block;
+            }
         }
     </style>
 </head>
@@ -227,7 +223,7 @@
         <div class="container">
             <h2>Sobre o Escritório</h2>
             <div class="gold-line"></div>
-            <p style="max-width: 1000px; margin: 0 auto 20px;">"No <strong>Brescia Advocacia Estratégica</strong>, acreditamos que o Direito vai muito além de processos, trata-se de pessoas, planos e tranquilidade. Sediado em Hortolândia, o escritório nasceu para oferecer um atendimento onde o rigor técnico caminha lado a lado com a escuta atenta. Entendemos que cada caso carrega uma história única e, por isso, fugimos de soluções prontas. Nossa missão é construir estratégias artesanais, entregando a segurança e a proximidade que você precisa para proteger o que é seu, sempre com transparência e um olhar dedicado a cada vitória."</p>           
+            <p style="max-width: 1000px; margin: 0 auto 20px;">"No <strong>Brescia Advocacia Estratégica</strong>, acreditamos que o Direito vai muito além de processos, trata-se de pessoas, planos e tranquilidade. Sediado em Hortolândia, o escritório nasceu para oferecer um atendimento onde o rigor técnico caminha lado a lado com a escuta atenta. Entendemos que cada caso carrega uma história única e, por isso, fugimos de soluções prontas. Nossa missão é construir estratégias artesanais, entregando a segurança e a proximidade que você precisa para proteger o que é seu, sempre com transparência e um olhar dedicado a cada vitória."</p>            
         </div>
     </section>
 
@@ -270,19 +266,15 @@
         text-align: center;
     }
     .info-advogada { 
-        order: 1; /* Nome e Título aparecem primeiro */
+        order: 1; 
         text-align: center;
     }
-    .info-advogada .gold-line { margin: 20px auto !important; } /* Centraliza a linha dourada */
+    .info-advogada .gold-line { margin: 20px auto !important; }
     
     .foto-advogada { 
-        order: 2; /* Foto aparece depois do nome */
+        order: 2; 
         margin-top: 20px;
     }
-    
-    /* Se quiser que o resto do texto venha depois da foto, 
-       podemos separar o parágrafo final, mas esta ordem 
-       (Nome > Foto > Descrição) é a mais elegante. */
 }
 </style>
 
@@ -373,7 +365,7 @@
             <div class="gold-line"></div>
         </div>
         <div class="map-wrapper">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7350.698476736737!2d-47.171879!3d-22.900486!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c8b84dba2f16c7%3A0xc852a867d07f8cbf!2sR.%20Ant%C3%B4nio%20Vi%C3%A9gas%2C%20130%20-%20Nucleo%20Santa%20Isabel%2C%20Hortol%C3%A2ndia%20-%20SP%2C%2013185-394%2C%20Brasil!5e0!3m2!1spt-BR!2sus!4v1772222279153!5m2!1spt-BR!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3676.885610816434!2d-47.2173464!3d-22.8436575!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c8b965f3a09325%3A0xc3f58a36c84c1a8!2sR.%20Ant%C3%B4nio%20Vi%C3%A9gas%2C%20130%20-%20Nucleo%20Santa%20Isabel%2C%20Hortol%C3%A2ndia%20-%20SP%2C%2013185-394!5e0!3m2!1spt-BR!2sbr!4v1700000000000" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </section>
 
@@ -419,5 +411,3 @@
     </script>
 </body>
 </html>
-
-
